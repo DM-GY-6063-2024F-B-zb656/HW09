@@ -1,4 +1,3 @@
-
 // original image, to use as reference for pixel colors
 let oImg;
 
@@ -23,15 +22,15 @@ function setup() {
 
   // TODO: setup sliders and other DOM/html elements here
   slider1 = createSlider(0, 255, 255, 0);
-  slider1.position(width/2 + 100, 100);
+  slider1.position(width / 2 + 100, 100);
   slider1.size(200);
 
   slider2 = createSlider(0, 255, 0, 0);
-  slider2.position(width/2 + 100, 200);
+  slider2.position(width / 2 + 100, 200);
   slider2.size(200);
-  
+
   slider3 = createSlider(0, 255, 0, 0);
-  slider3.position(width/2 + 100, 300);
+  slider3.position(width / 2 + 100, 300);
   slider3.size(200);
 }
 
@@ -46,16 +45,15 @@ function draw() {
     let redVal = oImg.pixels[idx + 0];
     let greenVal = oImg.pixels[idx + 1];
     let blueVal = oImg.pixels[idx + 2];
-    let alphaVal = oImg.pixels[idx + 3];
 
-    pixelIsRed = redVal > 2* greenVal && redVal > 2* blueVal && redVal > 100;
+    pixelIsRed = redVal > 2 * greenVal && redVal > 2 * blueVal && redVal > 100;
 
     if (pixelIsRed) {
       mImg.pixels[idx + 0] = slider1.value();
       mImg.pixels[idx + 1] = slider2.value();
       mImg.pixels[idx + 2] = slider3.value();
     }
-   }
+  }
   // we'll display the updated mImg, so let's update its pixels
   mImg.updatePixels();
 
